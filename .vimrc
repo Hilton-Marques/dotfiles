@@ -35,6 +35,7 @@ nmap Q <Nops>
 
 "Disable audible bell
 set noerrorbells visualbell t_vb=
+set belloff=all
 
 "improve navigation
 nnoremap <Left>  :echoe "Use h"<CR>
@@ -55,6 +56,9 @@ set undodir=~/.vim/undodir
 let mapleader=" "
 let maplocalleader=","
 
+" Configure colorscheme
+highlight VertSplit ctermfg=1 ctermbg=NONE cterm=NONE  
+colorscheme habiMath
 " ==========================================================
 " Movements
 " ==========================================================
@@ -67,8 +71,8 @@ map H ^
 map L $
 
 " Bigger vertical jumps
-nnoremap K :move-2<CR>== 
-nnoremap J :move+<CR>==
+nnoremap K 5k
+nnoremap J 5j
 
 " Center screen after search
 nnoremap <silent> n nzz
@@ -76,10 +80,25 @@ nnoremap <silent> N Nzz
 nnoremap <silent> * *zz
 nnoremap <silent> # #zz
 
-" ==========================================================
+" Spell checks
+setlocal spell
+set spelllang=en_us
+inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
+
+" Tabsize
+set shiftwidth=2
+set tabstop=2
+"  ==========================================================
 " PLUGINS
 " ==========================================================
 " Some plugins were took from https://github.com/gillescastel/latex-snippets 
+
+" Check if VimPlug is already installed
+if empty(glob('~/.vim/autoload/plug.vim'))
+	silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+				\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+	autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 
 call plug#begin('~/.vim/plugged')
 Plug 'sirver/ultisnips'
@@ -100,10 +119,33 @@ Plug 'KeitaNakamura/tex-conceal.vim'
     let g:tex_conceal='abdmg'
     hi Conceal ctermbg=none
 
+Plug 'jiangmiao/auto-pairs'
 
-setlocal spell
-set spelllang=en_us
-inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
+Plug 'junegunn/vim-easy-align'
+	" Start interactive EasyAlign in visual mode (e.g. vipga)
+	xmap ga <Plug>(EasyAlign)
+	" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+	nmap ga <Plug>(EasyAlign)
+
+Plug 'junegunn/limelight.vim'
+	" Color for out of focus sections with limelight
+	let g:limelight_conceal_ctermfg = 'gray'
+
+	" Regex for limelight to include % demarcations
+	let g:limelight_bop = '\(^\s*$\n\|^\s*%$\n\)\zs'
+	let g:limelight_eop = '\ze\(^$\|^\s*%$\)'
+
+Plug 'easymotion/vim-easymotion'
+Plug 'tpope/vim-surround'  
+Plug 'terryma/vim-multiple-cursors'
+Plug 'itchyny/lightline.vim'  
+Plug 'junegunn/goyo.vim'               " Distraction free mode
+Plug 'junegunn/limelight.vim'          " Focus on current paragraph
+Plug 'ron89/thesaurus_query.vim'       " Synonym query
+Plug 'dpelle/vim-LanguageTool'
+	let g:languagetool_jar='/home/hiltonms/Documents/Programas/languagetool/languagetool-commandline.jar'
+Plug 'PatrBal/vim-textidote'
+	let g:textidote_jar='/opt/textidote/textidote.jar'
 call plug#end()
 
 " ==========================================================
