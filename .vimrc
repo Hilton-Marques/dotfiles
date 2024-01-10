@@ -1,6 +1,8 @@
 " ==========================================================
 " Basic configuration
 " ==========================================================
+" Enable fyletype detection
+filetype plugin indent on
 
 "Turn on syntax highlighting
 syntax on
@@ -57,8 +59,10 @@ let mapleader=" "
 let maplocalleader=","
 
 " Configure colorscheme
+"highlight VertSplit ctermfg=1 ctermbg=NONE cterm=NONE  
 highlight VertSplit ctermfg=1 ctermbg=NONE cterm=NONE  
-colorscheme habiMath
+"colorscheme habiMath
+"colorscheme evening
 " ==========================================================
 " Movements
 " ==========================================================
@@ -81,13 +85,31 @@ nnoremap <silent> * *zz
 nnoremap <silent> # #zz
 
 " Spell checks
-setlocal spell
-set spelllang=en_us
+"setlocal spell
+"set spelllang=en
 inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
+autocmd FileType tex setlocal spell spelllang=pt
 
 " Tabsize
 set shiftwidth=2
 set tabstop=2
+
+" Save window_id to manage focus on zathura
+if !exists("g:vim_window_id")
+  let g:vim_window_id = system("xdotool getactivewindow")
+endif
+function! s:TexFocusVim(delay_ms) abort
+  " Give window manager time to recognize focus 
+  " moved to PDF viewer before focusing Vim.
+  let delay = a:delay_ms . "m"
+  execute 'sleep ' . delay
+  execute "!xdotool windowfocus " . expand(g:vim_window_id)
+  redraw!
+endfunction
+
+" Remaps to handle inkscape-figures
+inoremap <C-f> <Esc>: silent exec '.!inkscape-figures create "'.getline('.').'" "'.b:vimtex.root.'/figures/"'<CR><CR>:w<CR>
+nnoremap <C-f> : silent exec '!inkscape-figures edit "'.b:vimtex.root.'/pictures/" > /dev/null 2>&1 &'<CR><CR>:redraw!<CR>
 "  ==========================================================
 " PLUGINS
 " ==========================================================
@@ -107,13 +129,24 @@ Plug 'sirver/ultisnips'
     let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
 
 Plug 'lervag/vimtex'
-    filetype plugin indent on
     syntax enable
     let g:tex_flavor='latex'
     let g:vimtex_view_method='zathura'
     let g:vimtex_quickfix_mode=0
-    
-
+		"Config for Zathura conversation (taken from https://www.ejmastnak.com/tutorials/vim-latex/pdf-reader/#summary-what-works-on-what-platform )	
+		" This will only work if `vim --version` includes `+clientserver`!
+		if empty(v:servername) && exists('*remote_startserver')
+			call remote_startserver('VIM')
+		endif
+		augroup vimtex_event_focus
+			au!
+		" Post-forward-search refocus with 200ms delay---tweak as needed
+		au User VimtexEventView call s:TexFocusVim(200)
+		" Only perform post-inverse-search refocus on gVim; delay unnecessary
+		if has("gui_running")
+			au User VimtexEventViewReverse call s:TexFocusVim(0)
+		endif
+		augroup END 
 Plug 'KeitaNakamura/tex-conceal.vim'
     set conceallevel=1
     let g:tex_conceal='abdmg'
@@ -146,6 +179,7 @@ Plug 'dpelle/vim-LanguageTool'
 	let g:languagetool_jar='/home/hiltonms/Documents/Programas/languagetool/languagetool-commandline.jar'
 Plug 'PatrBal/vim-textidote'
 	let g:textidote_jar='/opt/textidote/textidote.jar'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 
 " ==========================================================
@@ -167,5 +201,4 @@ vmap <Leader>y "+y
 vmap <Leader>d "+d
 vmap <Leader>p "+p
 vmap <Leader>P "+P
-
 
