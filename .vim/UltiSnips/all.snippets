@@ -34,7 +34,7 @@ def create_matrix_n(snip):
 endglobal
 
 snippet // "separator" iA
- ==========================================================
+==========================================================
 endsnippet
 
 snippet template "Basic template" b
@@ -147,9 +147,9 @@ ${1:${VISUAL}}
 endsnippet
 
 snippet ali "Align" bA
-\begin{align*}
+\begin{aligned}
 	${1:${VISUAL}}
-.\end{align*}
+.\end{aligned}
 endsnippet
 
 
@@ -157,6 +157,12 @@ context "math()"
 snippet // "Fraction" iA
 \\frac{$1}{$2}$0
 endsnippet
+
+context "math()"
+snippet inn  "belongs" iA
+\\inn
+endsnippet
+
 
 snippet / "Fraction" i
 \\frac{${VISUAL}}{$1}$0
@@ -348,6 +354,11 @@ snippet ooo "\infty" iA
 \infty
 endsnippet
 
+context "math()"
+snippet oo "composition" iA
+\circ
+endsnippet
+
 snippet rij "mrij" i
 (${1:x}_${2:n})_{${3:$2}\\in${4:\\N}}$0
 endsnippet
@@ -452,6 +463,11 @@ snippet nabl "nabla" iA
 endsnippet
 
 context "math()"
+snippet op "oplus" iA
+\oplus
+endsnippet
+
+context "math()"
 snippet xx "cross" iA
 \times 
 endsnippet
@@ -484,11 +500,16 @@ snippet '(?<!\\)(arcsin|arccos|arctan|arccot|arccsc|arcsec|pi|zeta|int)' "ln" rw
 \\`!p snip.rv = match.group(1)`
 endsnippet
 
-
 priority 100
 context "math()"
 snippet -> "to" iA
 \to 
+endsnippet
+
+priority 100
+context "math()"
+snippet <- "left" iA
+\leftarrow
 endsnippet
 
 priority 200
@@ -589,8 +610,23 @@ snippet OO "emptyset" iA
 endsnippet
 
 context "math()"
+snippet T "inline math text" w
+\text{$0}
+endsnippet
+
+context "math()"
 snippet RR "real" iA
-\R
+\mathbb{R}
+endsnippet
+
+context "math()"
+snippet mm "real" iA
+\mathfrak{m}
+endsnippet
+
+context "math()"
+snippet MM "real" iA
+\mathcal{M}
 endsnippet
 
 context "math()"
@@ -678,6 +714,42 @@ snippet "bf" "vec-bold" riA
 \mathbf{$1}$0
 endsnippet
 
+priority 10
+context "math()"
+snippet "frak" "mathfrak" riA
+\mathfrak{$1}$0
+endsnippet
+
+priority 10
+context "math()"
+snippet "norm" "vec-bold" riA
+\\lvert $0 \\rvert $1
+endsnippet
+
+priority 10
+context "math()"
+snippet "dot" "dot" riA
+\dot{$1}$0
+endsnippet
+
+priority 10
+context "math()"
+snippet "ddot" "ddot" riA
+\ddot{$1}$0
+endsnippet
+
+priority 10
+context "math()"
+snippet "tilde" "dot" riA
+\tilde{$1}$0
+endsnippet
+
+priority 10
+context "math()"
+snippet "bs" "vec-bold" riA
+\boldsymbol{$1}$0
+endsnippet
+
 priority 100
 context "math()"
 snippet "([a-zA-Z])hat" "hat" riA
@@ -700,122 +772,176 @@ snippet letw "let omega" iA
 Let $\Omega \subset \C$ be open.
 endsnippet
 
-
+context "math()"
 snippet HH "H" iA
 \mathbb{H}
 endsnippet
 
+context "math()"
 snippet DD "D" iA
 \mathbb{D}
 endsnippet
 
+context "math()"
 snippet @a "a" iA
 \alpha
 endsnippet
 
+context "math()"
 snippet @A "a" iA
 \Alpha
 endsnippet
 
+context "math()"
 snippet @b "b" iA
 \beta
 endsnippet
 
+context "math()"
 snippet @B "B" iA
 \Beta
 endsnippet	
 
+context "math()"
 snippet @c "c" iA
 \chi
 endsnippet
 
+context "math()"
 snippet @C "C" iA
 \Chi
 endsnippet
 
+context "math()"
 snippet @d "d" iA
 \delta
 endsnippet
 
-snippet @e "e" iA
-\epsilong
+context "math()"
+snippet @D "D" iA
+\Delta
 endsnippet
 
+context "math()"
+snippet @e "e" iA
+\epsilon
+endsnippet
+
+context "math()"
 snippet @E "E" iA
 \Epsilon
 endsnippet
 
+context "math()"
+snippet @p "f" iA
+\phi
+endsnippet
+
+context "math()"
+snippet @P "F" iA
+\Phi
+endsnippet
+
+context "math()"
 snippet @g "g" iA
 \gamma
 endsnippet
 
+context "math()"
 snippet @G "G" iA
 \Gamma
 endsnippet
 
+context "math()"
 snippet @z "z" iA
 \zeta
 endsnippet
 
+context "math()"
 snippet @Z "Z" iA
 \Zeta
 endsnippet
 
+context "math()"
 snippet @t "t" iA
 \theta 
 endsnippet
 
+context "math()"
 snippet @T "T" iA
 \Theta
 endsnippet
 
+context "math()"
 snippet @k "k" iA
 \kappa 
 endsnippet
 
+context "math()"
 snippet @K "K" iA
 \Kappa
 endsnippet
 
+context "math()"
 snippet @l "l" iA
 \lambda
 endsnippet
 
+context "math()"
 snippet @L "L" iA
 \Lambda
 endsnippet
 
+context "math()"
 snippet @m "m" iA
 \mu
 endsnippet
 
+context "math()"
 snippet @M "M" iA
 \Mu 
 endsnippet
 
+context "math()"
 snippet @r "r" iA
 \rho
 endsnippet
 
+context "math()"
 snippet @R "R" iA
 \Rho
 endsnippet
 
+context "math()"
 snippet @s "s" iA
 \sigma
 endsnippet
 
+context "math()"
 snippet @S "S" iA
 \Sigma
 endsnippet
 
+context "math()"
 snippet @o "o" iA
 \omega
 endsnippet
 
+context "math()"
 snippet @O "O" iA
 \Omega
 endsnippet
+
+context "math()"
+snippet @x "x" iA
+\xi
+endsnippet
+
+context "math()"
+snippet @X "X" iA
+\Xi
+endsnippet
+
 # vim:ft=snippets
 
 # ==========================================================
@@ -826,4 +952,32 @@ pre_expand "create_matrix_n(snip)"
 snippet "(\w)mat(\d+)x(\d+)" "Generate matrix of *width* by *height*" rb 
 endsnippet
 
+# ==========================================================  
+# Equation operations
+# ========================================================== 
 
+snippet eq "Simple equation environment" b
+%
+\begin{equation*}
+	$0.
+\end{equation*}
+%
+endsnippet
+
+snippet eqn "Labeled equation environment" bA
+%
+\begin{equation}
+\label{eq:$1}
+	$0.
+\end{equation}
+%
+endsnippet
+
+snippet ald "Aligned sub-environment for equation" bA
+\begin{equation}
+\label{eq:$1}
+\begin{aligned}
+	$0.
+\end{aligned}
+\end{equation}
+endsnippet

@@ -1,4 +1,12 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =2
-let g:netrw_dirhist_2='/home/hiltonms/.vim'
-let g:netrw_dirhist_1='/home/hiltonms/Documents/Projetos/42examples/42_EXAM/rendu/rev_print'
+let g:netrw_dirhistcnt =0
+let g:netrw_dirhist_0='/home/hiltonms/Documents/Notes/Programming/Docker'
+let g:netrw_dirhist_9='/home/hiltonms/Documents/Notes/Programming/Networks/Figures'
+let g:netrw_dirhist_8='/home/hiltonms/Documents/Notes/Programming/Networks'
+let g:netrw_dirhist_7='/home/hiltonms/Documents/Notes/Programming'
+let g:netrw_dirhist_6='/home/hiltonms'
+let g:netrw_dirhist_5='/home/hiltonms/Documents/Projetos/masterthesis'
+let g:netrw_dirhist_4='/home/hiltonms/Documents/Projetos/my_libs/Colors.m'
+let g:netrw_dirhist_3='/home/hiltonms/.vim/UltiSnips'
+let g:netrw_dirhist_2='/home/hiltonms/Documents/multisurfacesmodelling/src/tops/src'
+let g:netrw_dirhist_1='/home/hiltonms/Documents/multisurfacesmodelling/tests'
