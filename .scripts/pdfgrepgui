@@ -1,0 +1,91 @@
+#!/usr/bin/bash
+
+#######################################
+# Author: Hilton Santana
+# Date: 2024-07-07
+# Description:
+# GUI program to search for a keyword in
+# a directory of PDF files. As dependencies
+# we have yad, parallel, pdfgrep, and evince.
+########################################
+
+# Auxiliary function to open the file
+function open_uri() {
+  local input_string="$1"
+  local file_path=$(echo "$input_string" | grep -o '.*\.pdf')
+  local page_number=$(echo "$input_string" | sed -n 's/.*~\/\(.*\)/\1/p')
+
+  echo "file_path: $file_path"
+  echo "page_number: $page_number"
+  if [[ -n $page_number ]]; then
+    evince --page-label=$page_number "$file_path" &
+  else
+    xdg-open "$file_path" &
+  fi
+}
+export -f open_uri
+
+start_pattern=$1
+
+start_path=$2
+[[ -z $1 ]] && start_pattern=""
+[[ -z $2 ]] && start_path=$HOME
+
+# Gui design with yad
+values=$(yad \
+  --form \
+  --field=Keyword \
+  "$start_pattern" \
+  --field=Path:DIR \
+  "$start_path" \
+  --class="Keyword-And-Path" \
+  --name="Keyword and Path" \
+  --title="$(basename "$0") - Keyword and Path" \
+  --center \
+  --width=400 \
+  --separator="~/~" \
+)
+
+pattern=$(echo "$values" | awk -F "~/~" '{print $1}')
+[[ -z "$pattern" ]] && exit 1
+
+path=$(echo "$values" | awk -F "~/~" '{print $2}')
+[[ -z "$path" ]] && exit 1
+
+exec 3> >(yad \
+  --center \
+  --class="Search-Results" \
+  --name="Search Results" \
+  --text="The search term <b>\"$pattern\"</b> was found in these files. Double to open a file." \
+  --save \
+  --list \
+  --column="Author" \
+  --column="Path" \
+  --button="Close:1" \
+  --width=700 \
+  --height=500 \
+  --title="$(basename "$0") - Search Results" \
+  --dclick-action="bash -c \"open_uri %s &\"" \
+  --quoted-output \
+  --listen \
+  --separator="~/~" \
+)
+
+notify-send "$(basename "$0")" "Start search for <b>$pattern</b> in <b>$path</b>"
+
+# Introduced parallel to speed up the search
+filenames=$(find "$path" -name '*.pdf')
+echo "$filenames" | parallel pdfgrep -n -H "$pattern" {} 2>/dev/null | awk -F ":" '{print $1":"$2}' | uniq | { while read -r line;
+  do
+    pdf_path=$(echo "$line" | cut -d ':' -f 1)
+    page_number=$(echo "$line" | cut -d ':' -f 2)
+		file=$(basename "$pdf_path")
+    echo "$file~/$page_number" >&3
+    echo "$pdf_path~/$page_number" >&3
+  done
+}
+
+notify-send "$(basename "$0")" "Finished search for <b>$pattern</b> in <b>$path</b>"
+
+exec 3>&-
+exit 0

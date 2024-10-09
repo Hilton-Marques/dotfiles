@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+res=$(xsel -o | tr '\n' ' ' | trans -b -t pt)
+echo $res  > /tmp/tmptrans 
+zenity --text-info --title="Translation" --filename=/tmp/tmptrans
