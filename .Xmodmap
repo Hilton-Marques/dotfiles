@@ -1,0 +1,6 @@
+clear lock
+!caps -> Escape
+keycode 66 = Escape
+!keycode 108 = Mode_switch
+!keycode  51 = backslash bar asciitilde numbersign dead_tilde notsign brokenbar bar bar backslash bar backslash bar
+!keycode 64 = ISO_Level3_Shift Multi_key ISO_Level3_Shift Multi_key
