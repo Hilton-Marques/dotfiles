@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   id="svg968"
+   width="201"
+   height="201">
+  <metadata
+     id="metadata974">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs972">
+    <clipPath
+       id="clipPath893"
+       clipPathUnits="userSpaceOnUse">
+      <rect
+         y="-31.658428"
+         x="-26.685829"
+         height="31.59704"
+         width="56.27599"
+         id="rect895"
+         style="opacity:1;vector-effect:none;fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.07022042;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:1.05330626, 1.05330626;stroke-dashoffset:0;stroke-opacity:1;marker-start:none;marker-end:none;paint-order:normal" />
+    </clipPath>
+    <clipPath
+       id="clipPath897"
+       clipPathUnits="userSpaceOnUse">
+      <rect
+         transform="scale(1,-1)"
+         y="-40.049019"
+         x="-26.685833"
+         height="40.110394"
+         width="56.27599"
+         id="rect899"
+         style="opacity:1;vector-effect:none;fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.07022042;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:1.05330626, 1.05330626;stroke-dashoffset:0;stroke-opacity:1;marker-start:none;marker-end:none;paint-order:normal" />
+    </clipPath>
+  </defs>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="640"
+     inkscape:window-height="480"
+     id="namedview970" />
+  <inkscape:clipboard
+     style="font-variant-east_asian:normal;opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;stroke-width:3.77952756;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+     min="258.81394,179.34369"
+     max="459.81395,380.34369" />
+  <g
+     id="g966"
+     transform="matrix(3.7795276,0,0,3.7795276,-258.81395,-742.176)">
+    <g
+       inkscape:label="Lines of Latitude"
+       id="g837"
+       transform="translate(95.068476,222.95802)"
+       clip-path="url(#clipPath893)"
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.28088167;stroke-dasharray:1.05330625, 1.05330625;stroke-opacity:1;marker-start:none;marker-end:none">
+      <ellipse
+         ry="15.176876"
+         rx="26.246668"
+         cy="1.3271129e-15"
+         cx="0"
+         style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.28088167;stroke-dasharray:1.05330625, 1.05330625;stroke-opacity:1;marker-start:none;marker-end:none"
+         id="path835" />
+    </g>
+    <circle
+       r="26.458334"
+       cy="222.95802"
+       cx="95.068481"
+       style="fill:none;stroke:#000000;stroke-width:0.26458332"
+       id="path839" />
+    <g
+       inkscape:label="Lines of Latitude"
+       id="g837-3"
+       transform="translate(95.068476,222.95143)"
+       clip-path="url(#clipPath897)">
+      <ellipse
+         ry="15.176876"
+         rx="26.246668"
+         cy="1.3271129e-15"
+         cx="0"
+         style="fill:none;stroke:#000000;stroke-width:0.26458332"
+         id="path835-6" />
+    </g>
+  </g>
+</svg>
