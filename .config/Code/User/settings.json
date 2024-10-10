@@ -1,0 +1,195 @@
+{
+    "42header.username": "hsouza-s",
+    "42header.email": "hsouza-s@student.42.fr",
+    "files.autoSave": "afterDelay",
+    // "clangd.arguments": [
+    //     "--compile-commands-dir=${workspaceFolder}/build",
+    //     "--completion-style=detailed",
+    //     "--clang-tidy",
+    //     "--clang-tidy-checks=-*,modernize*",
+    //     "--header-insertion=never"
+    // ],
+    // "C_Cpp.intelliSenseEngine": "disabled",
+    "workbench.iconTheme": "vscode-icons",
+    "clangd.path": "/home/hiltonms/.config/Code/User/globalStorage/llvm-vs-code-extensions.vscode-clangd/install/16.0.2/clangd_16.0.2/bin/clangd",
+    "diffEditor.maxComputationTime": 0,
+    "[cpp]": {
+        "editor.defaultFormatter": "ms-vscode.cpptools"
+    },
+    "window.zoomLevel": 1,
+    "makefile.makefilePath": "./build",
+    "remote.SSH.showLoginTerminal": true,
+    "remote.SSH.useLocalServer": false,
+    "remote.SSH.connectTimeout": 30,
+    "terminal.integrated.windowsEnableConpty": false,
+    "remote.SSH.remotePlatform": {
+    "remote-server": "linux"
+    },
+    "psi-header.variables": [
+        ["author", "Hilton-Marques"],
+        ["url", "<https://my.github.com/Hilton-Marques>"]
+    ],
+    "psi-header.templates": [
+    {
+        "language": "*",
+        "template": [
+            "Copyright (c) <<year>> <<author>> <<url>>",
+            "",
+            "Created Date: <<filecreated('dddd, MMMM Do YYYY, h:mm:ss a')>>",
+            "Author: <<author>>",
+            "",
+            "Description:",
+            "HISTORY:",
+            "Date      \tBy\tComments",
+            "----------\t---\t----------------------------------------------------------"
+        ],
+        "changeLogCaption": "HISTORY:",
+        "changeLogHeaderLineCount": 2,
+        "changeLogEntryTemplate": [
+            "<<dateformat('YYYY-MM-DD')>>\t<<initials>>\t"
+        ]
+    }
+    ],
+    "psi-header.config": {
+        "forceToTop": true,
+		"blankLinesAfter": 1,
+		"spacesBetweenYears": false,
+		"license": "MIT",
+		"author": "Hilton Santana",
+		"initials": "HS",
+		"authorEmail": "hilton-code@gmail.com",
+    },
+    "psi-header.changes-tracking": {
+
+    },
+    "workbench.editor.empty.hint": "hidden",
+    "editor.renderWhitespace": "all",
+    "doxdocgen.generic.authorName": "Hilton Marques",
+    "doxdocgen.generic.authorEmail": "",
+    "doxdocgen.generic.useGitUserName": true,
+    "doxdocgen.generic.useGitUserEmail": true,
+    "keyboard.dispatch": "keyCode",
+    "workbench.editor.showTabs": "single",
+    "editor.tabSize": 2,
+    "editor.detectIndentation": false,
+    "vim.vimrc.path": "$HOME/.vimrc",
+    "vim.vimrc.enable": true, 
+    "vim.handleKeys": {
+      "<C-d>": false,
+      "<C-s>": false,
+      "<C-z>": false,
+      "<C-S>": false,
+      "<C-p>": false,
+      "<Space>": true,
+      "<C-[>": false,
+      "<C-]>": false,
+      "<C-f>": false,
+      "<C-o>": false,
+      "<C-i>": false,
+			"<j>": false,
+    },
+    //
+    "vim.leader": "<Space>",
+    "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": ["<Leader>", "p"],
+      "commands": [
+          "workbench.action.showCommands",
+      ]
+    },
+    {
+      "before": ["<Leader>", "t"],
+      "commands": [
+          "workbench.action.gotoSymbol",
+      ]
+    },
+    {
+      "before": ["<Leader>", "b"],
+      "commands": [
+        //breakpoint toggle
+        "editor.debug.action.toggleBreakpoint",
+      ]
+    },
+    {
+      "before": ["<Leader>", "n"],
+      "commands": [
+        //launch cmake debug
+        "cmake.debugTarget",
+      ]
+    },
+    {
+      "before": ["<Leader>", "v"],
+      "commands": [
+      //continue debug
+      "workbench.action.debug.continue",
+      ]
+    },
+    {
+      "before": ["<Leader>", "m"],
+      "commands": [
+      //step over
+      "workbench.action.debug.stepOver",
+      ]
+    },
+    {
+      "before": ["<Leader>", "."],
+      "commands": [
+      //step into
+      "workbench.action.debug.stepInto",
+      ]
+    },
+    {
+      "before": ["<Leader>", ","],
+      "commands": [
+      //step out
+      "workbench.action.debug.stepOut",
+      ]
+    },
+    {
+      "before": ["<Leader>", "/"],
+      "commands": [
+      //stop
+      "workbench.action.debug.stop",
+      ]
+    },
+    ],
+    "vim.insertModeKeyBindings": [
+      {
+        "before": ["g", "i"],
+        "commands": ["editor.action.goToImplementation"]
+      }
+    ],
+    "vim.normalModeKeyBindings": [
+      {
+        "before": ["g", "i"],
+        "commands": ["editor.action.revealDefinition"]
+      }
+    ],
+    "diffEditor.ignoreTrimWhitespace": false,
+    //Editor configs
+    "editor.renderLineHighlight": "all",
+    "workbench.colorCustomizations": {
+    "editor.lineHighlightBackground": "#00000000",
+},
+"remote.autoForwardPortsSource": "hybrid",
+"yaml.schemas": {
+  "file:///home/hiltonms/.vscode/extensions/atlassian.atlascode-3.0.10/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
+},
+"terminal.integrated.commandsToSkipShell": [
+  "github.copilot.terminal.suggestCommand",
+  "matlab.interrupt"
+],
+"gitlens.ai.experimental.provider": "openai",
+"gitlens.ai.experimental.openai.model": "gpt-4-turbo-preview",
+"cmake.options.statusBarVisibility": "visible",
+"github.copilot.editor.enableAutoCompletions": true,
+"cmake.pinnedCommands": [
+	"workbench.action.tasks.configureTaskRunner",
+	"workbench.action.tasks.runTask"
+],
+"atlascode.jira.lastCreateSiteAndProject": {
+	"siteId": "",
+	"projectKey": ""
+},
+"cmake.showNotAllDocumentsSavedQuestion": false
+}
